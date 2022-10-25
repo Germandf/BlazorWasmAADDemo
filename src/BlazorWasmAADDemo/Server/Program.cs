@@ -13,6 +13,7 @@ builder.Services.Configure<JwtBearerOptions>(JwtBearerDefaults.AuthenticationSch
 {
     options.TokenValidationParameters.NameClaimType = "name";
 });
+builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
@@ -33,11 +34,13 @@ app.UseHttpsRedirection();
 app.UseBlazorFrameworkFiles();
 app.UseStaticFiles();
 
+app.UseSwagger();
+app.UseSwaggerUI();
+
 app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
-
 
 app.MapRazorPages();
 app.MapControllers();
