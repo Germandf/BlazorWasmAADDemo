@@ -1,4 +1,6 @@
 ﻿@page "/authentication/{action}"
+@attribute [AllowAnonymous]
+
 <RemoteAuthenticatorView Action="@Action" />
 
 @code{
